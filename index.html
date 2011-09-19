@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>jQuery Font &mdash; a neat little typography plugin</title>
+		
+		<style>
+			body {
+				font-family: Avenir, Futura, "Century Gothic", sans-serif;
+			}
+		</style>
+		
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="jquery.font.js"></script>
+		<script>
+			$(function() {
+				$('span').html($('p').font());
+			});
+		</script>
+	</head>
+	
+	<body>
+		<p>The font you're using on this page is: <span>a mystery</span>.</p>
+	</body>
+</html>
