@@ -3,21 +3,22 @@
  *		Licensed under the WTFPL.
  *
  *		 Usage:		$(element).font()
- *		Return:		Font name, as a string, from the CSS stack.
+ *		Return:		Font name, as a string, from the CSS stack, or undefined.
  */
 
 
 $.fn.font = function() {
+
 	var me = $(this),
-	stack = me.css('font-family').split(', '),
+	stack = (me.css('font-family') ? me.css('font-family').split(', ') : [undefined]),
 		i = 0,
 		current = '',
 		body = $('body'),
 		style = 'position: absolute; padding: 0; width: auto; font-size: 40px; left: -999em; top: -999em;',
-		comicStack = body.append('<div id="comic-stack" style="' + style + ' font-family: \'Comic Sans MS\', \'Comic Sans\'">The quick brown fox jumps over the lazy dog. MmWwMwWm</div>').find('#comic-stack');
+		comicStack = body.append('<div id="comic-stack" style="' + style + ' font-family: \'Comic Sans MS\', \'Comic Sans\'">My word! This quail WAS DEVOUT? 107 Times.</div>').find('#comic-stack');
 	
 	if(stack[0] != 'Comic Sans MS') {
-		for(i = 1; i <= stack.length; i++) {
+		for(i = 0; i <= stack.length; i++) {
 			id = new Date().getTime();
 			family = body.append('<div id="stack-' + id + '" style="' + style + ' font-family: ' + stack[i] + ', \'Comic Sans MS\', \'Comic Sans\'">The quick brown fox jumps over the lazy dog. MmWwMwWm</div>')
 						 .find('#stack-' + id);
