@@ -5,7 +5,16 @@
 		
 		<style>
 			body {
-				font-family: Avenir, Futura, "Century Gothic", sans-serif;
+				font-family: Baskerville, Avenir, Futura, "Century Gothic", sans-serif;
+			}
+			
+			blockquote {
+                margin: 0;
+                padding: 25px;
+                background: #ffc;
+                border-left: 3px solid #ddb;
+                color: #553;
+                font-family: "Helvetica Neue", Arial, sans-serif;
 			}
 		</style>
 		
@@ -13,12 +22,18 @@
 		<script src="jquery.font.js"></script>
 		<script>
 			$(function() {
-				$('span').html($('p').font());
+				$('span').each(function() {
+				    $(this).html($(this).parent().font());
+				});
 			});
 		</script>
 	</head>
 	
 	<body>
-		<p>The font you're using on this page is: <span>a mystery</span>.</p>
-	</body>
+    <p>The font you're using on this page is: <span>a mystery</span>.</p>
+    
+        <blockquote>
+            The font I'm using is: <span>pretty neat, right?</span>.
+        </blockquote>
+    </body>
 </html>
